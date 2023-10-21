@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TP5_Reseau.View"
+             x:Class="TP5_Reseau.FilmPage"
+             x:Name="MaPage"
+             BindingContext="{x:Reference MaPage}"
+             Title="Films">
+
+    <StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <local:ViewNetworkStatus HorizontalOptions="Start" />
+            <Image />
+        </StackLayout>
+        <Image Source="Affiche_film.jpg" Aspect="AspectFit" WidthRequest="300" Margin="0,15,0,15" />
+        <Label Text="Liste des films :"/>
+        <ListView ItemsSource="{Binding Films.Liste}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="listFilms">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Titre}" Detail="{Binding Réalisateur}" Command="{Binding Path=SélectionFilm, Source={x:Reference MaPage}}" CommandParameter="{Binding .}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

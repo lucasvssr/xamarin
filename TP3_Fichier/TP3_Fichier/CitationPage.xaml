@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP3_Fichier.CitationPage"
+             Title="Edition">
+    
+    <Grid Padding="10" BackgroundColor="{DynamicResource fontColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Edition de la citation" Grid.Row="0" HorizontalTextAlignment="Center" FontSize="25"/>
+
+        <Grid Grid.Row="1">            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="Citation" VerticalOptions="Center"/>
+            <Editor x:Name="edTexte" Grid.Column="1"/>
+        </Grid>
+
+        <Grid Grid.Row="2">          
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="Auteur" VerticalOptions="Center"/>
+            <Entry x:Name="entryAuteur" Grid.Column="1"/>
+        </Grid>
+
+        <StackLayout Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Text="Sauvegarder" x:Name="butSave" BackgroundColor="#0F8009" Clicked="butSave_Clicked"/>
+                <Button Text="Annuler" x:Name="butCancel" Grid.Column="1" BackgroundColor="#6B6B6B" Clicked="butCancel_Clicked"/>
+            </Grid>
+
+            <Button Text="Supprimer" x:Name="butDelete" BackgroundColor="#801701" Clicked="butDelete_Clicked"/>
+        </StackLayout>        
+    </Grid>
+</ContentPage>

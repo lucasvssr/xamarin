@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP2_Calculatrice.MainPage">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Style x:Key="StyleTouche" TargetType="Button">
+                <Setter Property="TextColor" Value="Black" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Margin" Value="3"/>
+            </Style>
+
+            <Style x:Key="StyleChiffre" TargetType="Button" BasedOn="{StaticResource StyleTouche}">
+                <Setter Property="BackgroundColor" Value="AliceBlue" />
+            </Style>
+
+            <Style x:Key="StyleOperateur" TargetType="Button" BasedOn="{StaticResource StyleTouche}">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="BackgroundColor" Value="Orange" />
+            </Style>
+
+            <Style x:Key="ResetButton" TargetType="Button" BasedOn="{StaticResource StyleOperateur}">
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="WidthRequest" Value="150"/>
+                <Setter Property="BackgroundColor" Value="Gray" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="EqualButton" TargetType="Button" BasedOn="{StaticResource ResetButton}">
+                <Setter Property="HorizontalOptions" Value="Fill"/>
+                <Setter Property="BackgroundColor" Value="#0F66DE" />
+            </Style>
+
+            <Style x:Key="StyleLabel" TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="Center" />
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
+                <Setter Property="Padding" Value="0,0,20,0" />
+                <Setter Property="FontSize" Value="28" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+
+            <Style x:Key="EntryLabel" TargetType="Label" BasedOn="{StaticResource StyleLabel}">
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="VerticalOptions" Value="Fill"/>
+                <Setter Property="Grid.Row" Value="0"/>
+            </Style>
+
+            <Style x:Key="ResultLabel" TargetType="Label" BasedOn="{StaticResource StyleLabel}">
+                <Setter Property="BackgroundColor" Value="Gray"/>
+                <Setter Property="Grid.Row" Value="1"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HeightRequest" Value="80"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid Padding="20" BackgroundColor="#272020">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="0" Style="{StaticResource EntryLabel}" x:Name="lblOpérations" Grid.Column="0"/>
+            <Label Style="{StaticResource ResultLabel}" x:Name="lblRésultat" Grid.Column="0"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Text="7" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+            <Button Grid.Column="1" Text="8" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+            <Button Grid.Column="2" Text="9" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="4" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="5" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+            <Button Grid.Row="1" Grid.Column="2" Text="6" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+
+            <Button Grid.Row="2" Grid.Column="0" Text="1" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="2" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="3" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+
+            <Button Grid.Row="3" Grid.Column="0" Text="←" Style="{StaticResource ResetButton}" BackgroundColor="#E30000" Clicked="ButSupClicked"/>
+            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="0" Style="{StaticResource StyleChiffre}" Clicked="ButChiffreClicked"/>
+
+            <Button Grid.Row="0" Grid.Column="4" Text="/" Style="{StaticResource StyleOperateur}" Clicked="ButOperateurClicked"/>
+            <Button Grid.Row="1" Grid.Column="4" Text="x" Style="{StaticResource StyleOperateur}" Clicked="ButOperateurClicked"/>
+            <Button Grid.Row="2" Grid.Column="4" Text="-" Style="{StaticResource StyleOperateur}" Clicked="ButOperateurClicked"/>
+            <Button Grid.Row="3" Grid.Column="4" Text="+" Style="{StaticResource StyleOperateur}" Clicked="ButOperateurClicked"/>
+
+            <Button Grid.Row="4" Grid.Column="0" Text="C" Style="{StaticResource ResetButton}" Clicked="ButCleanClicked"/>
+            <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Text="=" Style="{StaticResource EqualButton}" Clicked="ButEqualClicked"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>

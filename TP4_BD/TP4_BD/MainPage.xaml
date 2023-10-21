@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP4_BD.MainPage"
+             xmlns:local="clr-namespace:TP4_BD.ViewModel;assembly=TP4_BD"
+             x:Name="Page"
+             BindingContext="{x:Reference Page}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="Ajouter" IconImageSource="add.png" Command="{Binding AjouterFilm}" />
+        <ToolbarItem Order="Primary" Text="Voir" IconImageSource="look.png" Command="{Binding VoirFilm}" CommandParameter="{Binding SelectedItem, Source={x:Reference listFilms}}"/>
+        <ToolbarItem Order="Secondary" Text="Modifier" IconImageSource="edit.png" Command="{Binding ModifierFilm}" CommandParameter="{Binding SelectedItem, Source={x:Reference listFilms}}"/>
+        <ToolbarItem Order="Secondary" Text="Supprimer" IconImageSource="delete.png" Command="{Binding SupprimerFilm}" CommandParameter="{Binding SelectedItem, Source={x:Reference listFilms}}"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ListView ItemsSource="{Binding DépotFilms.Films}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="listFilms">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Film.Titre}" Detail="{Binding Film.Réalisateur}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

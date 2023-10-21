@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP3_Fichier.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="colorText">Beige</Color>
+            <Color x:Key="fontColor">#343434</Color>
+            <Style x:Key="horizonEnd" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="End"/>
+            </Style>
+            <Style x:Key="infos" TargetType="Label" BasedOn="{StaticResource horizonEnd}">
+                <Setter Property="Margin" Value="0,15,25,10" />
+                <Setter Property="FontAttributes" Value="Italic"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="TextColor" Value="{StaticResource colorText}"/>
+            </Style>
+            <Style x:Key="addButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="DimGray" />
+                <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                <Setter Property="Margin" Value="40,0,40,0" />
+            </Style>
+            <Style TargetType="Editor">
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="TextColor" Value="White" />
+                <Style.Triggers>
+                    <Trigger TargetType="Editor" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="#001" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="Entry">
+                <Setter Property="BackgroundColor" Value="Black" />
+                <Setter Property="TextColor" Value="White"/>
+                <Style.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="True">
+                        <Setter Property="BackgroundColor" Value="#001" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP3_Fichier.MainPage"
+             Title="Accueil">
+
+    <StackLayout BackgroundColor="{DynamicResource fontColor}">
+        <Frame Padding="24" BackgroundColor="#030202">
+            <Label Text="Citations" TextColor="{DynamicResource colorText}" HorizontalTextAlignment="Center" FontSize="36" FontAttributes="Bold"/>
+        </Frame>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="0,0,25,0">
+            <Label Text="???" x:Name="lblNombreCitations" TextColor="{DynamicResource colorText}"/>
+            <Label Text="citations" TextColor="{DynamicResource colorText}"/>
+        </StackLayout>
+
+        <Button Text="Chargements des citations en cours ..." Style="{StaticResource addButton}" x:Name="butAfficherCitations" IsEnabled="False" Clicked="butAfficherCitations_Clicked"/>
+        <Label Text="Application développée par moi, ©2023" Style="{StaticResource infos}"/>
+    </StackLayout>
+</ContentPage>

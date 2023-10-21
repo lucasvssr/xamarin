@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP4_BD.VoirPage"
+             x:Name="Visuel"
+             BindingContext="{x:Reference Visuel}"
+             Title="Film">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Order="Primary" Text="Modifier" IconImageSource="edit.png" Command="{Binding Edit}" />
+        <ToolbarItem Order="Secondary" Text="Supprimer" IconImageSource="delete.png" Command="{Binding Delete}"/>
+    </ContentPage.ToolbarItems>
+
+    <Grid Margin="25,50,0,25">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <StackLayout Grid.Column="0">
+            <Label Text="Titre :"/>
+            <Label Text="Réalisateur :" />
+            <Label Text="Année :" />
+            <Label Text="Type :" />
+        </StackLayout>
+
+        <StackLayout Grid.Column="1">
+            <Label Text="{Binding Film.Film.Titre}" />
+            <Label Text="{Binding Film.Film.Réalisateur}" />
+            <Label Text="{Binding Film.Film.Année}" />
+            <Label Text="{Binding Film.Film.Type}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

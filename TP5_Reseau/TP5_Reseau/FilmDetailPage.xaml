@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:TP5_Reseau.View"
+             x:Class="TP5_Reseau.FilmDetailPage"
+             x:Name="CettePage"
+             BindingContext="{x:Reference CettePage}"
+             Title="Détail du Film" >
+
+
+    <StackLayout Padding="15">
+
+            <StackLayout Orientation="Horizontal">
+                <local:ViewNetworkStatus HorizontalOptions="Start" />
+                <Image />
+                <Button Text="Retour" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Command="{Binding Retour}" />
+            </StackLayout>
+
+
+        <Grid Margin="0, 0, 10, 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Text="Titre :"/>
+                <Label Grid.Row="1" Text="Réalisateur :"/>
+                <Label Grid.Row="2" Text="Production :"/>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Text="{Binding Titre}" FontAttributes="Bold" FontSize="15"/>
+                <Label Grid.Row="1" Text="{Binding Réalisateur}" FontAttributes="Bold" FontSize="15"/>
+                <Label Grid.Row="2" Text="{Binding Production}" FontAttributes="Bold" FontSize="15"/>
+            </Grid>
+        </Grid>
+
+        <StackLayout HeightRequest="200">
+            <Label Text="Personnages :"/>
+            <ListView ItemsSource="{Binding Personnages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Nom}" TextColor="AntiqueWhite"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+
+        <Label Text="Planètes"/>
+        <Label Text="Vaisseaux"/>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP4_BD.AjoutPage"
+             x:Name="MaPage"
+             BindingContext="{x:Reference MaPage}"
+             Title="Ajouter un film">
+
+    <StackLayout Padding="10,20,10,10">
+        <StackLayout>
+            <Label>Titre du film</Label>
+            <Entry Placeholder="Tapez le titre du film" 
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding Film.Titre}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label VerticalTextAlignment="Center">Année</Label>
+            <Entry Placeholder="Tapez l'année (entier)"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding Film.Année}"/>
+        </StackLayout>
+        <StackLayout>
+            <Label>Réalisateur</Label>
+            <Entry Placeholder="Tapez le nom du réalisateur"
+                   Text="{Binding Film.Réalisateur}"/>
+        </StackLayout>
+        <StackLayout>
+            <Picker Title="Sélectionnez le type"
+                    ItemsSource="{Binding TypesFilms}"
+                    SelectedItem="{Binding Film.Film.Type}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <Button Text="OK" HorizontalOptions="FillAndExpand"
+                    Command="{Binding Validate}" />
+            <Button Text="Annuler" HorizontalOptions="FillAndExpand"
+                    Command="{Binding Cancel}" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP1.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+            <Label Text="Appelez-moi" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label Text="Mon premier TP en Xamarin" HorizontalTextAlignment="Center"  FontSize="32"/>
+        <Label Text="Entrez un numéro de téléphone au format 0X.XX.XX.XX.XX :" HorizontalTextAlignment="Center"  FontSize="18"/>
+        <Entry Placeholder="01.01.01.01.01" x:Name="entNuméro" TextChanged="entNuméro_TextChanged"/>
+        <Button Text="Appelez-moi" HorizontalOptions="Center" BackgroundColor="#2196F3" x:Name="butAppeler" IsEnabled="False" Clicked="butAppeler_ClickedAsync"/>
+        <Button Text="Afficher l'historique des appels" x:Name="butPageNuméros" Clicked="butPageNuméros_Clicked"/>
+    </StackLayout>
+</ContentPage>

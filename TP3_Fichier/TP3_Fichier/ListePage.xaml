@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP3_Fichier.ListePage"
+             Title="Citations">
+    <StackLayout BackgroundColor="{DynamicResource fontColor}">
+        <ListView x:Name="lstCitations" ItemTapped="lstCitations_ItemTapped" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="10" BackgroundColor="#040303" Margin="0,5,0,5">
+                            <Label Text="{Binding Texte}" Margin="0,0,0,5" TextColor="{StaticResource colorText}"/>
+                            <Label Text="{Binding Auteur}" HorizontalTextAlignment="End" FontAttributes="Italic" TextColor="{StaticResource colorText}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Ajouter une citation" Style="{StaticResource addButton}" x:Name="butAjouterCitation" Clicked="butAjouterCitation_Clicked"/>
+        <Label Text="Application développée par moi, ©2023" Style="{StaticResource infos}"/>
+
+    </StackLayout>
+</ContentPage>

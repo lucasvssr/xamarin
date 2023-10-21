@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TP5_Reseau.MainPage"
+             Title="Star Wars">
+    <Grid>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Text="A savoir sur Star Wars" Margin="0,15,0,0"/>
+        <Image Grid.Row="1" Source="dark_vador.jpeg" Aspect="AspectFit" HeightRequest="150"/>
+        <Label Grid.Row="2" Text="SWAPI" HorizontalOptions="Center" VerticalOptions="Center" FontSize="28"/>
+        <Label Grid.Row="3" Text="Thanks to The Star Wars API - ©2023"  HorizontalOptions="End" VerticalOptions="EndAndExpand" Margin="0,0,15,15"/>
+    </Grid>
+</ContentPage>
